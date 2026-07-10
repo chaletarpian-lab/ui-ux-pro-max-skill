@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arpian — Slide 4 — Clôture</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root {
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  .slide {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--chocolat);
+    font-family: 'Fraunces', serif;
+    color: var(--creme);
+  }
+  .stars {
+    position: absolute; top: 172px; left: 0; right: 0;
+    text-align: center;
+    color: var(--or); font-size: 30px;
+    letter-spacing: 0.9em; text-indent: 0.9em;
+  }
+  .content {
+    position: absolute; left: 90px; right: 90px; top: 330px;
+    text-align: center;
+  }
+  h1 {
+    font-style: italic; font-weight: 600;
+    font-size: 98px; line-height: 1.2;
+  }
+  h1 .accent { color: var(--or); }
+  .sub {
+    margin-top: 64px;
+    font-weight: 600; font-size: 44px;
+    color: var(--or);
+  }
+  .cta {
+    position: absolute; left: 130px; right: 130px; top: 852px;
+    background: var(--or);
+    color: var(--chocolat);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px; font-weight: 600;
+    letter-spacing: 0.16em; text-indent: 0.16em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    padding: 27px 0;
+  }
+  .logo {
+    position: absolute; top: 1040px; left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+  }
+  .site {
+    position: absolute; left: 0; right: 0; top: 1240px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px; font-weight: 500;
+    letter-spacing: 0.28em; text-indent: 0.28em;
+    text-transform: uppercase;
+    color: rgba(243,238,229,0.75);
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="stars">&#10022;&nbsp;&#10022;&nbsp;&#10022;</div>
+
+    <div class="content">
+      <h1>Deux paradis<br>par jour,<br><span class="accent">&ccedil;a se r&eacute;serve.</span></h1>
+      <div class="sub">Une tribu. &ensp;Un chalet. &ensp;Arpian.</div>
+    </div>
+
+    <div class="cta">R&eacute;servations en direct &mdash; lien en bio</div>
+
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
+
+    <div class="site">arpian-valmorel.com</div>
+  </div>
+</body>
+</html>

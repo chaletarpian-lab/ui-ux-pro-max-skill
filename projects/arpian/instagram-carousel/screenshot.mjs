@@ -7,6 +7,7 @@ const slides = [
   ['slide-00-intro.html', 'output/arpian-carousel-0-intro.png'],
   ['slide-01-okapy.html', 'output/arpian-carousel-1-okapy.png'],
   ['slide-02-family-room.html', 'output/arpian-carousel-2-family-room.png'],
+  ['slide-03-cloture.html', 'output/arpian-carousel-3-cloture.png'],
 ];
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });

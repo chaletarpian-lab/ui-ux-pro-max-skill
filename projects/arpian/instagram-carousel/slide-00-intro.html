@@ -2,24 +2,21 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Arpian — Slide 0 — Intro Valmorel</title>
+<title>Arpian — Slide 1 — Couverture</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
   :root {
-    --nuit-alpine: #0B1030;
-    --neon-glacier: #5B8CFF;
-    --neon-valmorel: #FF5C8A;
-    --melze: #D9A05B;
-    --soleil-altitude: #FFC145;
-    --neige: #FBF7F0;
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1080px; height: 1350px; overflow: hidden; }
   .slide {
     position: relative;
     width: 1080px; height: 1350px;
-    background: var(--nuit-alpine);
-    font-family: 'Montserrat', sans-serif;
+    background: var(--chocolat);
+    font-family: 'Fraunces', serif;
   }
   .photo {
     position: absolute; inset: 0;
@@ -31,71 +28,57 @@
     position: absolute; inset: 0;
     background:
       linear-gradient(to bottom,
-        rgba(11,16,48,0.82) 0%,
-        rgba(11,16,48,0.5) 20%,
-        rgba(11,16,48,0) 45%,
-        rgba(11,16,48,0.6) 68%,
-        rgba(11,16,48,0.93) 100%);
-  }
-  .logo {
-    position: absolute; top: 88px; left: 50%;
-    transform: translateX(-50%);
-    width: 520px;
-    filter: drop-shadow(0 6px 26px rgba(11,16,48,0.75));
+        rgba(24,18,12,0.32) 0%,
+        rgba(24,18,12,0.38) 45%,
+        rgba(24,18,12,0.5) 75%,
+        rgba(24,18,12,0.66) 100%);
   }
   .content {
-    position: absolute; left: 80px; right: 80px; bottom: 150px;
-    text-align: center; color: var(--neige);
+    position: absolute; left: 90px; right: 90px; top: 0; bottom: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; color: var(--creme);
+    padding-bottom: 60px;
   }
   .kicker {
-    display: inline-flex; align-items: center; gap: 20px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 27px; font-weight: 600;
-    letter-spacing: 0.42em; text-indent: 0.42em;
+    letter-spacing: 0.32em; text-indent: 0.32em;
     text-transform: uppercase;
-    color: var(--soleil-altitude);
-    margin-bottom: 30px;
-  }
-  .kicker::before, .kicker::after {
-    content: ""; width: 52px; height: 1px;
-    background: var(--soleil-altitude); opacity: 0.8;
+    color: var(--or);
+    margin-bottom: 44px;
   }
   h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700; font-size: 104px; line-height: 1.04;
-    text-shadow: 0 4px 30px rgba(11,16,48,0.55);
+    font-weight: 600; font-size: 116px; line-height: 1.08;
+    text-shadow: 0 4px 34px rgba(24,18,12,0.45);
   }
-  .script {
-    font-family: 'Great Vibes', cursive;
-    font-weight: 400; font-size: 112px; line-height: 1.15;
-    color: var(--soleil-altitude);
-    text-shadow: 0 4px 26px rgba(11,16,48,0.5);
-    margin-top: 8px;
+  h1 .accent {
+    font-style: italic; font-weight: 600;
+    color: var(--or);
   }
   .sub {
-    margin-top: 34px;
-    font-size: 30px; font-weight: 500; line-height: 1.5;
-    color: rgba(251,247,240,0.92);
-    letter-spacing: 0.02em;
+    margin-top: 46px;
+    font-weight: 400; font-size: 37px; line-height: 1.55;
+    text-shadow: 0 2px 20px rgba(24,18,12,0.5);
   }
-  .footer {
-    position: absolute; left: 80px; right: 80px; bottom: 58px;
-    display: flex; align-items: center; justify-content: space-between;
-    color: rgba(251,247,240,0.9);
+  .stars {
+    margin-top: 52px;
+    color: var(--or); font-size: 30px;
+    letter-spacing: 0.9em; text-indent: 0.9em;
   }
-  .dots { display: flex; gap: 12px; align-items: center; }
-  .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(251,247,240,0.35); }
-  .dot.active { background: var(--soleil-altitude); width: 34px; border-radius: 8px; }
-  .swipe {
-    font-size: 25px; font-weight: 600;
-    letter-spacing: 0.22em; text-transform: uppercase;
+  .logo {
+    position: absolute; bottom: 92px; left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    filter: drop-shadow(0 4px 20px rgba(24,18,12,0.6));
   }
-  .swipe .arrow { color: var(--soleil-altitude); margin-left: 10px; }
   .credit {
     position: absolute; right: 18px; top: 50%;
     transform: rotate(90deg) translateX(-50%);
     transform-origin: right top;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px; font-weight: 500; letter-spacing: 0.08em;
-    color: rgba(251,247,240,0.6);
+    color: rgba(243,238,229,0.55);
   }
 </style>
 </head>
@@ -104,21 +87,15 @@
     <img class="photo" src="assets/valmorel-summer.webp" alt="">
     <div class="scrim"></div>
 
-    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
-
     <div class="content">
-      <div class="kicker">Vacances en famille</div>
-      <h1>Valmorel avec des enfants&nbsp;?</h1>
-      <div class="script">deux paradis par jour</div>
-      <div class="sub">Le matin les cimes, l&rsquo;apr&egrave;s-midi les trampolines,<br>le soir le cin&eacute;ma du chalet&hellip;</div>
+      <div class="kicker">Valmorel &middot; Savoie &middot; En famille</div>
+      <h1>Pour les enfants,<br>chaque journ&eacute;e a<br><span class="accent">deux paradis.</span></h1>
+      <div class="sub">Un dehors, sous le soleil.<br>Un dedans, au c&oelig;ur du chalet.</div>
+      <div class="stars">&#10022;&nbsp;&#10022;&nbsp;&#10022;</div>
     </div>
 
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
     <div class="credit">&copy; OT Valmorel / Pierre Jacques</div>
-
-    <div class="footer">
-      <div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
-      <div class="swipe">Suivez le guide<span class="arrow">&#10142;</span></div>
-    </div>
   </div>
 </body>
 </html>

@@ -1,33 +1,42 @@
 # Design Système — Chalet Arpian (Valmorel)
 
-Identité dérivée de l'enseigne néon de la Family Room : « CHALET ARPIAN — *Valmorel* »
-(bleu électrique + script rose néon sur bois de mélèze), esprit chalet alpin premium & familial.
+Style « éditorial alpin » : photos plein cadre, serif à fort contraste, accent italique doré,
+palette crème / chocolat / or. Référence : carrousel été (`arpianete01…06`) réalisé dans Claude design.
 
 ## Couleurs
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--nuit-alpine` | `#0B1030` | Fond profond, scrims, textes sur clair |
-| `--neon-glacier` | `#5B8CFF` | Accent néon bleu (enseigne), soirée |
-| `--neon-valmorel` | `#FF5C8A` | Accent script rose néon, soirée |
-| `--melze` | `#D9A05B` | Bois chaud, filets, détails |
-| `--soleil-altitude` | `#FFC145` | Accent journée (soleil, énergie) |
-| `--neige` | `#FBF7F0` | Texte principal sur photo/scrim |
+| `--creme` | `#F3EEE5` | Texte sur photo/sombre, fond des slides claires |
+| `--chocolat` | `#221A13` | Fond des slides de clôture, texte sur crème |
+| `--or` | `#C2A279` | Accent : kickers, mots en italique, CTA, étoiles |
 
-Dualité jour/nuit : accent **soleil-altitude** en journée, accents **néon glacier + valmorel**
-(avec glow `text-shadow`) en soirée. Le scrim `nuit-alpine` unifie les deux.
+Scrims photo : dégradés de `rgba(24,18,12,…)` (brun neutre, jamais bleu).
 
 ## Typographie
 
 | Rôle | Fonte | Usage |
 |---|---|---|
-| Display | Cormorant Garamond 600/700 | Titres — élégance hôtelière |
-| Script | Great Vibes | Mots accent — écho du « Valmorel » néon |
-| Label/Body | Montserrat 500/600 | Kickers uppercase (letter-spacing 0.3em), sous-titres |
+| Display | Fraunces 600 | Titres ; le mot/segment clé passe en *italique doré* |
+| Body | Fraunces 400 | Sous-titres et légendes, interlignage 1.55–1.6 |
+| Label | Montserrat 500/600 | Kickers uppercase (letter-spacing 0.16–0.32em), CTA, URL |
 
-## Grille slide Instagram (1080 × 1350)
+## Grammaire des slides (1080 × 1350)
 
-- Photo plein cadre (`object-fit: cover`), scrim dégradé transparent → nuit-alpine.
-- Barre de marque en haut : filets `melze` + « CHALET ARPIAN · VALMOREL ».
-- Bloc texte bas : kicker uppercase accent → titre serif `neige` → ligne script accent → sous-titre Montserrat.
-- Pied : points de pagination + indication de swipe / handle.
+- **Couverture** : kicker or centré « VALMOREL · SAVOIE · … », titre centré crème dont la
+  dernière ligne est en italique or, sous-titre serif 2 lignes, étoiles « ✦ ✦ ✦ » or,
+  logo blanc centré en bas.
+- **Slides contenu** : petit logo blanc en haut à gauche ; bloc texte bas-gauche :
+  kicker « — 0X — TITRE » or, titre crème + ligne italique or, body serif crème 2 lignes.
+- **Clôture** (fond chocolat) : étoiles or en haut, titre italique centré (fin en or),
+  signature « Une tribu. Un chalet. Arpian. » en or, bandeau CTA or (texte chocolat,
+  Montserrat uppercase, une seule ligne), logo centré, « ARPIAN-VALMOREL.COM » espacé.
+- Crédit photo éventuel : vertical sur le bord droit, Montserrat 16px, crème 55 %.
+
+## Régénérer les PNG
+
+```bash
+cd projects/arpian/instagram-carousel
+npm install playwright@1.56.1 --no-save
+node screenshot.mjs   # écrit dans output/
+```
