@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Arpian — Slide 1 — Okapy</title>
+<title>Arpian — Slide 0 — Intro Valmorel</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
   :root {
@@ -25,23 +25,23 @@
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
-    object-position: 50% 32%;
+    object-position: 50% 40%;
   }
   .scrim {
     position: absolute; inset: 0;
     background:
       linear-gradient(to bottom,
-        rgba(11,16,48,0.45) 0%,
-        rgba(11,16,48,0.05) 16%,
-        rgba(11,16,48,0) 40%,
-        rgba(11,16,48,0.62) 68%,
+        rgba(11,16,48,0.82) 0%,
+        rgba(11,16,48,0.5) 20%,
+        rgba(11,16,48,0) 45%,
+        rgba(11,16,48,0.6) 68%,
         rgba(11,16,48,0.93) 100%);
   }
   .logo {
-    position: absolute; top: 56px; left: 50%;
+    position: absolute; top: 88px; left: 50%;
     transform: translateX(-50%);
-    width: 330px;
-    filter: drop-shadow(0 4px 20px rgba(11,16,48,0.75));
+    width: 520px;
+    filter: drop-shadow(0 6px 26px rgba(11,16,48,0.75));
   }
   .content {
     position: absolute; left: 80px; right: 80px; bottom: 150px;
@@ -61,15 +61,15 @@
   }
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 700; font-size: 118px; line-height: 1.02;
+    font-weight: 700; font-size: 104px; line-height: 1.04;
     text-shadow: 0 4px 30px rgba(11,16,48,0.55);
   }
   .script {
     font-family: 'Great Vibes', cursive;
-    font-weight: 400; font-size: 108px; line-height: 1.15;
+    font-weight: 400; font-size: 112px; line-height: 1.15;
     color: var(--soleil-altitude);
     text-shadow: 0 4px 26px rgba(11,16,48,0.5);
-    margin-top: 6px;
+    margin-top: 8px;
   }
   .sub {
     margin-top: 34px;
@@ -90,25 +90,34 @@
     letter-spacing: 0.22em; text-transform: uppercase;
   }
   .swipe .arrow { color: var(--soleil-altitude); margin-left: 10px; }
+  .credit {
+    position: absolute; right: 18px; top: 50%;
+    transform: rotate(90deg) translateX(-50%);
+    transform-origin: right top;
+    font-size: 16px; font-weight: 500; letter-spacing: 0.08em;
+    color: rgba(251,247,240,0.6);
+  }
 </style>
 </head>
 <body>
   <div class="slide">
-    <img class="photo" src="assets/okapy-day.jpeg" alt="">
+    <img class="photo" src="assets/valmorel-summer.webp" alt="">
     <div class="scrim"></div>
 
     <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
 
     <div class="content">
-      <div class="kicker">En journ&eacute;e</div>
-      <h1>Okapy,</h1>
-      <div class="script">le paradis des enfants</div>
-      <div class="sub">Trampolines, ch&acirc;teaux gonflables &amp; fous rires<br>&agrave; deux pas du chalet</div>
+      <div class="kicker">Vacances en famille</div>
+      <h1>Valmorel avec des enfants&nbsp;?</h1>
+      <div class="script">deux paradis par jour</div>
+      <div class="sub">Le matin les cimes, l&rsquo;apr&egrave;s-midi les trampolines,<br>le soir le cin&eacute;ma du chalet&hellip;</div>
     </div>
 
+    <div class="credit">&copy; OT Valmorel / Pierre Jacques</div>
+
     <div class="footer">
-      <div class="dots"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
-      <div class="swipe">Et le soir&nbsp;?<span class="arrow">&#10142;</span></div>
+      <div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="swipe">Suivez le guide<span class="arrow">&#10142;</span></div>
     </div>
   </div>
 </body>

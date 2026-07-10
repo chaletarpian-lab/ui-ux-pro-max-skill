@@ -4,6 +4,7 @@ import path from 'path';
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const slides = [
+  ['slide-00-intro.html', 'output/arpian-carousel-0-intro.png'],
   ['slide-01-okapy.html', 'output/arpian-carousel-1-okapy.png'],
   ['slide-02-family-room.html', 'output/arpian-carousel-2-family-room.png'],
 ];

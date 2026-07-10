@@ -37,17 +37,11 @@
         rgba(11,16,48,0.66) 70%,
         rgba(11,16,48,0.95) 100%);
   }
-  .brandbar {
-    position: absolute; top: 64px; left: 80px; right: 80px;
-    display: flex; align-items: center; gap: 28px;
-    color: var(--neige);
-  }
-  .brandbar .line { flex: 1; height: 1px; background: rgba(251,247,240,0.55); }
-  .brandbar .name {
-    font-size: 26px; font-weight: 600;
-    letter-spacing: 0.34em; text-indent: 0.34em;
-    text-transform: uppercase; white-space: nowrap;
-    text-shadow: 0 2px 14px rgba(11,16,48,0.6);
+  .logo {
+    position: absolute; top: 56px; left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    filter: drop-shadow(0 4px 20px rgba(11,16,48,0.75));
   }
   .content {
     position: absolute; left: 80px; right: 80px; bottom: 150px;
@@ -107,11 +101,7 @@
     <img class="photo" src="assets/family-room-night.jpeg" alt="">
     <div class="scrim"></div>
 
-    <div class="brandbar">
-      <div class="line"></div>
-      <div class="name">Chalet Arpian &middot; Valmorel</div>
-      <div class="line"></div>
-    </div>
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
 
     <div class="content">
       <div class="kicker">En soir&eacute;e</div>
@@ -121,7 +111,7 @@
     </div>
 
     <div class="footer">
-      <div class="dots"><div class="dot"></div><div class="dot active"></div></div>
+      <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
       <div class="handle">Chalet Arpian</div>
     </div>
   </div>
