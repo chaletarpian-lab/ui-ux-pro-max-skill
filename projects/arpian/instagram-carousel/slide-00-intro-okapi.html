@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arpian — Couverture Okapi</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root {
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  .slide {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--chocolat);
+    font-family: 'Fraunces', serif;
+  }
+  .photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+  .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(24,18,12,0.44) 0%,
+        rgba(24,18,12,0.56) 45%,
+        rgba(24,18,12,0.62) 75%,
+        rgba(24,18,12,0.75) 100%);
+  }
+  .content {
+    position: absolute; left: 90px; right: 90px; top: 0; bottom: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; color: var(--creme);
+    padding-bottom: 60px;
+  }
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 27px; font-weight: 600;
+    letter-spacing: 0.32em; text-indent: 0.32em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 44px;
+    text-shadow: 0 2px 16px rgba(24,18,12,0.6);
+  }
+  h1 {
+    font-weight: 600; font-size: 116px; line-height: 1.08;
+    text-shadow: 0 4px 34px rgba(24,18,12,0.6);
+  }
+  h1 .accent {
+    font-style: italic; font-weight: 600;
+    color: var(--or);
+  }
+  .sub {
+    margin-top: 46px;
+    font-weight: 400; font-size: 37px; line-height: 1.55;
+    text-shadow: 0 2px 20px rgba(24,18,12,0.65);
+  }
+  .stars {
+    margin-top: 52px;
+    color: var(--or); font-size: 30px;
+    letter-spacing: 0.9em; text-indent: 0.9em;
+  }
+  .logo {
+    position: absolute; bottom: 92px; left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    filter: drop-shadow(0 4px 20px rgba(24,18,12,0.7));
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <img class="photo" src="assets/okapi-day.jpeg" alt="">
+    <div class="scrim"></div>
+
+    <div class="content">
+      <div class="kicker">Valmorel &middot; Savoie &middot; En famille</div>
+      <h1>Le paradis<br>des enfants,<br><span class="accent">&ccedil;a existe.</span></h1>
+      <div class="sub">Il s&rsquo;appelle Okapi, &agrave; 5 minutes de l&rsquo;Arpian &mdash;<br>et le soir, il a m&ecirc;me une suite&hellip;</div>
+      <div class="stars">&#10022;&nbsp;&#10022;&nbsp;&#10022;</div>
+    </div>
+
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
+  </div>
+</body>
+</html>
