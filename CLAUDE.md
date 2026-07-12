@@ -2,6 +2,21 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Projets Chalet Arpian (prioritaire)
+
+Tout travail de contenu pour le Chalet Arpian (carrousels, reels, légendes,
+retouches photo) suit le mode « chef d'orchestre » :
+
+1. Lire d'abord `projects/arpian/base-contexte/README.md` puis les fichiers
+   qu'il référence (marque, voix, design système, production, assets).
+2. Appliquer le protocole `projects/arpian/base-contexte/ORCHESTRATION.md` :
+   la session principale définit la stratégie et découpe le travail, puis
+   délègue l'exécution à des agents (Copy, Prod visuelle, Retouche, QA)
+   briefés avec le modèle fourni — elle coordonne, contrôle et livre,
+   mais ne produit pas elle-même.
+3. Mettre à jour `projects/arpian/base-contexte/03-assets.md` après chaque
+   projet, et enrichir la base quand le client énonce une règle durable.
+
 ## Project Overview
 
 Antigravity Kit is an AI-powered design intelligence toolkit providing searchable databases of UI styles, color palettes, font pairings, chart types, and UX guidelines. It works as a skill/workflow for AI coding assistants (Claude Code, Windsurf, Cursor, etc.).
