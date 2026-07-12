@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arpian — Reel « Le tour déco »</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root {
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--chocolat); }
+  .stage {
+    position: relative; width: 1080px; height: 1920px;
+    font-family: 'Fraunces', serif; color: var(--creme);
+  }
+  .scene { position: absolute; inset: 0; opacity: 0; overflow: hidden; background: var(--chocolat); }
+  .scene .photo-wrap { position: absolute; inset: 0; overflow: hidden; }
+  .scene img.photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; will-change: transform;
+  }
+  .scene .scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(24,18,12,0.38) 0%,
+      rgba(24,18,12,0.10) 20%,
+      rgba(24,18,12,0.08) 46%,
+      rgba(24,18,12,0.66) 74%,
+      rgba(24,18,12,0.92) 100%);
+  }
+  .logo-corner {
+    position: absolute; top: 84px; left: 76px; width: 190px;
+    filter: drop-shadow(0 3px 14px rgba(24,18,12,0.7));
+  }
+  .content {
+    position: absolute; left: 76px; right: 76px; bottom: 148px;
+    text-align: left;
+  }
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--or); margin-bottom: 30px;
+  }
+  h1 {
+    font-weight: 600; font-size: 78px; line-height: 1.14;
+    text-shadow: 0 4px 30px rgba(24,18,12,0.55);
+  }
+  h1 .accent { font-style: italic; font-weight: 600; color: var(--or); }
+  .body {
+    margin-top: 30px; font-weight: 400; font-size: 33px; line-height: 1.55;
+    text-shadow: 0 2px 18px rgba(24,18,12,0.6);
+  }
+
+  /* Intro */
+  .scene.intro .scrim {
+    background: linear-gradient(to bottom,
+      rgba(24,18,12,0.55) 0%,
+      rgba(24,18,12,0.28) 30%,
+      rgba(24,18,12,0.30) 55%,
+      rgba(24,18,12,0.78) 100%);
+  }
+  .scene.intro .content {
+    left: 90px; right: 90px; top: 0; bottom: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .stars { color: var(--or); font-size: 34px; letter-spacing: 0.6em; text-indent: 0.6em; }
+  .scene.intro .stars { margin-bottom: 44px; }
+  .scene.intro .kicker { margin-bottom: 40px; }
+  .scene.intro h1 { font-size: 96px; }
+  .scene.intro .body { margin-top: 36px; font-size: 34px; }
+  .logo-bottom {
+    position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%);
+    width: 280px; filter: drop-shadow(0 3px 14px rgba(24,18,12,0.7));
+  }
+
+  /* Clôture */
+  .scene.outro { background: var(--chocolat); }
+  .scene.outro .content {
+    left: 90px; right: 90px; top: 0; bottom: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .scene.outro .stars { margin-bottom: 56px; }
+  .scene.outro h1 { font-size: 88px; font-style: italic; font-weight: 600; }
+  .scene.outro h1 .accent { color: var(--or); }
+  .scene.outro .signature {
+    margin-top: 40px; font-size: 36px; font-style: italic; color: var(--or);
+  }
+  .cta {
+    margin-top: 72px;
+    font-family: 'Montserrat', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--chocolat); background: var(--or);
+    padding: 26px 54px; white-space: nowrap;
+  }
+  .scene.outro .logo-outro { width: 300px; margin-top: 84px;
+    filter: drop-shadow(0 3px 14px rgba(24,18,12,0.7)); }
+  .url {
+    margin-top: 44px;
+    font-family: 'Montserrat', sans-serif; font-weight: 500;
+    font-size: 26px; letter-spacing: 0.34em; text-indent: 0.34em;
+    color: var(--creme); opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+<div class="stage" id="stage"></div>
+
+<script>
+const FADE = 500;          // crossfade (ms)
+const INTRO_DUR = 3600;
+const SCENE_DUR = 2400;
+const OUTRO_DUR = 4600;
+
+const SCENES = [
+  { type: 'intro', img: 'intro-fenetre', pos: '74% 50%', dur: INTRO_DUR,
+    kicker: 'Valmorel · Savoie',
+    title: 'Le tour déco du<br><span class="accent">Chalet Arpian.</span>',
+    body: 'Vieux bois, laine et lumière d’altitude :<br>suivez la visite, pièce par pièce.' },
+
+  { n: '01', room: 'L’entrée', img: 'entree-pressoir', pos: '45% 50%', dur: SCENE_DUR,
+    title: 'Le ton est donné, <span class="accent">dès la porte.</span>',
+    body: 'Vis de pressoir ancienne, ardoise et vieux bois.' },
+
+  { n: '02', room: 'Le grand salon', img: 'grand-salon', pos: '50% 45%', dur: SCENE_DUR,
+    title: 'Un canapé vert mousse <span class="accent">face à la neige.</span>',
+    body: 'Laine bouclée, tapis à carreaux, vieux bois.' },
+
+  { n: '03', room: 'Le coin cheminée', img: 'salon-cheminee', pos: '50% 45%', dur: SCENE_DUR,
+    title: 'Pierre, braises <span class="accent">et plaids en fourrure.</span>',
+    body: 'Le cœur battant du chalet.' },
+
+  { n: '04', room: 'L’esprit vintage', img: 'esprit-vintage', pos: '48% 50%', dur: SCENE_DUR,
+    title: 'Des objets qui ont <span class="accent">déjà vécu.</span>',
+    body: 'Enceinte rétro, mouton de laiton, beaux livres.' },
+
+  { n: '05', room: 'Le panorama', img: 'panorama-cerf', pos: '50% 42%', dur: SCENE_DUR,
+    title: 'Un cerf de bronze <span class="accent">veille sur la vallée.</span>',
+    body: 'La baie cadre les sommets comme un tableau.' },
+
+  { n: '06', room: 'Le coin lecture', img: 'coin-lecture', pos: '50% 45%', dur: SCENE_DUR,
+    title: 'La lumière du soir, <span class="accent">côté bibliothèque.</span>',
+    body: 'Canapé profond et livres d’art alpin.' },
+
+  { n: '07', room: 'La table d’hôtes', img: 'table-hotes', pos: '50% 45%', dur: SCENE_DUR,
+    title: 'Une grande tablée <span class="accent">face aux montagnes.</span>',
+    body: 'Vieilles planches, grès noir et verre strié.' },
+
+  { n: '08', room: 'La cuisine', img: 'cuisine', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Un meuble de métier <span class="accent">en îlot central.</span>',
+    body: 'Chiné, patiné, taillé pour les grandes tribus.' },
+
+  { n: '09', room: 'Les matières', img: 'matieres', pos: '50% 50%', dur: SCENE_DUR,
+    title: 'Pierre éclatée, <span class="accent">noyer et laiton.</span>',
+    body: 'Chaque façade se travaille comme un relief.' },
+
+  { n: '10', room: 'Le coin repas', img: 'coin-repas', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Chaux, vert amande <span class="accent">et portraits de coqs.</span>',
+    body: 'L’esprit ferme, revisité.' },
+
+  { n: '11', room: 'L’escalier', img: 'escalier', pos: '50% 45%', dur: SCENE_DUR,
+    title: 'Vert sapin <span class="accent">jusque dans la montée.</span>',
+    body: 'Et de vieux skis suspendus dans la lumière.' },
+
+  { n: '12', room: 'La suite', img: 'suite', pos: '45% 50%', dur: SCENE_DUR,
+    title: 'Le petit-déjeuner <span class="accent">se prend au lit.</span>',
+    body: 'Et les montagnes s’invitent au réveil.' },
+
+  { n: '13', room: 'La chambre double', img: 'chambre-double', pos: '50% 50%', dur: SCENE_DUR,
+    title: 'Des têtes de lit <span class="accent">en vieux bois galbé.</span>',
+    body: 'Lin lavé, plaid écossais, peignoirs douillets.' },
+
+  { n: '14', room: 'La chambre aux skis', img: 'chambre-skis', pos: '38% 50%', dur: SCENE_DUR,
+    title: 'Des skis d’époque <span class="accent">en guise de tableau.</span>',
+    body: 'Clin d’œil aux pionniers de la glisse.' },
+
+  { n: '15', room: 'La chambre familiale', img: 'chambre-familiale', pos: '50% 50%', dur: SCENE_DUR,
+    title: 'Trois lits sous <span class="accent">la charpente blonde.</span>',
+    body: 'Et un cheval de bois qui monte la garde.' },
+
+  { n: '16', room: 'Le dortoir des enfants', img: 'dortoir-enfants', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Moutarde, tweed <span class="accent">et cheval à bascule.</span>',
+    body: 'Le refuge préféré des petits.' },
+
+  { n: '17', room: 'Le coin bureau', img: 'coin-bureau', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Lampe ours et <span class="accent">tabouret moumoute.</span>',
+    body: 'Pour télétravailler face aux cimes.' },
+
+  { n: '18', room: 'Le coin jeux', img: 'coin-jeux', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Dames, marmottes <span class="accent">et peaux de vache.</span>',
+    body: 'Sous la fenêtre, l’hiver passe vite.' },
+
+  { n: '19', room: 'La salle de bains', img: 'salle-de-bains', pos: '50% 55%', dur: SCENE_DUR,
+    title: 'Vasques rondes <span class="accent">en pierre noire.</span>',
+    body: 'Chêne clair et pierre grise, esprit spa.' },
+
+  { n: '20', room: 'La salle de fête', img: 'salle-de-fete', pos: '65% 45%', dur: SCENE_DUR,
+    title: 'Au sous-sol, <span class="accent">le néon s’allume.</span>',
+    body: 'Concerts et soirées : la boîte du chalet.' },
+
+  { n: '21', room: 'L’heure de l’apéro', img: 'apero', pos: '50% 40%', dur: SCENE_DUR,
+    title: 'Et le soir venu, <span class="accent">tout le monde se retrouve.</span>',
+    body: 'Face au cerf, whisky et fous rires.' },
+
+  { type: 'outro', dur: OUTRO_DUR,
+    title: 'Une tribu. Un chalet.<br><span class="accent">Arpian.</span>',
+    signature: 'Chalet privatisé, à Valmorel.',
+    cta: 'Réservez vos dates',
+    url: 'ARPIAN-VALMOREL.COM' },
+];
+
+// Timeline : chaque scène chevauche la précédente de FADE ms
+let t0 = 0;
+SCENES.forEach((s, i) => { s.start = t0; t0 += s.dur - FADE; });
+const TOTAL_MS = SCENES[SCENES.length - 1].start + SCENES[SCENES.length - 1].dur;
+window.TOTAL_MS = TOTAL_MS;
+
+// Construction du DOM
+const stage = document.getElementById('stage');
+SCENES.forEach((s, i) => {
+  const el = document.createElement('div');
+  el.className = 'scene' + (s.type ? ' ' + s.type : '');
+  let html = '';
+  if (s.img) {
+    html += `<div class="photo-wrap"><img class="photo" src="assets/photos/${s.img}.jpg" style="object-position:${s.pos}"></div>`;
+    html += `<div class="scrim"></div>`;
+  }
+  if (s.type === 'intro') {
+    html += `<div class="content">
+      <div class="stars anim" data-d="0">✦ ✦ ✦</div>
+      <div class="kicker anim" data-d="120">${s.kicker}</div>
+      <h1 class="anim" data-d="260">${s.title}</h1>
+      <div class="body anim" data-d="420">${s.body}</div>
+    </div>
+    <img class="logo-bottom anim" data-d="540" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">`;
+  } else if (s.type === 'outro') {
+    html += `<div class="content">
+      <div class="stars anim" data-d="0">✦ ✦ ✦</div>
+      <h1 class="anim" data-d="140">${s.title}</h1>
+      <div class="signature anim" data-d="300">${s.signature}</div>
+      <div class="cta anim" data-d="480">${s.cta}</div>
+      <img class="logo-outro anim" data-d="640" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">
+      <div class="url anim" data-d="760">${s.url}</div>
+    </div>`;
+  } else {
+    html += `<img class="logo-corner" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">
+    <div class="content">
+      <div class="kicker anim" data-d="80">&mdash;&nbsp;${s.n}&nbsp;&mdash;&nbsp;${s.room}</div>
+      <h1 class="anim" data-d="220">${s.title}</h1>
+      <div class="body anim" data-d="380">${s.body}</div>
+    </div>`;
+  }
+  el.innerHTML = html;
+  stage.appendChild(el);
+  s.el = el;
+  s.photo = el.querySelector('img.photo');
+  s.anims = [...el.querySelectorAll('.anim')];
+});
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const easeOutCubic = p => 1 - Math.pow(1 - p, 3);
+
+// Ken Burns : zoom avant sur scènes paires, arrière sur impaires, pan léger alterné
+function kb(i, p) {
+  const zin = i % 2 === 0;
+  const s = zin ? 1.02 + 0.10 * p : 1.12 - 0.10 * p;
+  const dx = (i % 4 < 2 ? 1 : -1) * (p - 0.5) * 1.6;   // -0.8% → +0.8%
+  const dy = (i % 3 === 0 ? 1 : -1) * (p - 0.5) * 1.0;
+  return `scale(${s.toFixed(4)}) translate(${dx.toFixed(3)}%, ${dy.toFixed(3)}%)`;
+}
+
+window.seek = function (t) {
+  SCENES.forEach((s, i) => {
+    const local = t - s.start;
+    if (local < -1 || local > s.dur + 1) { s.el.style.opacity = 0; return; }
+    const fadeIn = clamp(local / FADE, 0, 1);
+    const fadeOut = clamp((s.dur - local) / FADE, 0, 1);
+    s.el.style.opacity = (Math.min(fadeIn, fadeOut)).toFixed(3);
+    if (s.photo) {
+      const p = clamp(local / s.dur, 0, 1);
+      s.photo.style.transform = kb(i, p);
+    }
+    s.anims.forEach(a => {
+      const d = +a.dataset.d * 1.6 + 260;
+      const ap = easeOutCubic(clamp((local - d) / 620, 0, 1));
+      a.style.opacity = ap.toFixed(3);
+      a.style.transform = `translateY(${((1 - ap) * 26).toFixed(2)}px)`;
+    });
+  });
+};
+
+// Prêt quand fontes + images chargées
+window.READY = false;
+Promise.all([
+  document.fonts.ready,
+  ...[...document.images].map(im => im.decode().catch(() => {})),
+]).then(() => { window.seek(0); window.READY = true; });
+
+// Aperçu temps réel si ouvert dans un navigateur (inutile pour le rendu)
+if (!navigator.webdriver) {
+  const loop = ts => { window.seek(ts % TOTAL_MS); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
