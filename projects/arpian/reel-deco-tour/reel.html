@@ -22,14 +22,14 @@
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; will-change: transform;
   }
+  /* Scènes sans texte : voile léger, juste pour la lisibilité du logo */
   .scene .scrim {
     position: absolute; inset: 0;
     background: linear-gradient(to bottom,
-      rgba(24,18,12,0.38) 0%,
-      rgba(24,18,12,0.10) 20%,
-      rgba(24,18,12,0.08) 46%,
-      rgba(24,18,12,0.66) 74%,
-      rgba(24,18,12,0.92) 100%);
+      rgba(24,18,12,0.30) 0%,
+      rgba(24,18,12,0.05) 18%,
+      rgba(24,18,12,0) 45%,
+      rgba(24,18,12,0.16) 100%);
   }
   .logo-corner {
     position: absolute; top: 84px; left: 76px; width: 190px;
@@ -118,94 +118,56 @@ const SCENE_DUR = 2400;
 const OUTRO_DUR = 4600;
 
 const SCENES = [
-  { type: 'intro', img: 'intro-fenetre', pos: '74% 50%', dur: INTRO_DUR,
+  { type: 'intro', img: 'coin-lecture', pos: '50% 45%', dur: INTRO_DUR,
     kicker: 'Valmorel · Savoie',
     title: 'Le tour déco du<br><span class="accent">Chalet Arpian.</span>',
     body: 'Vieux bois, laine et lumière d’altitude :<br>suivez la visite, pièce par pièce.' },
 
-  { n: '01', room: 'L’entrée', img: 'entree-pressoir', pos: '45% 50%', dur: SCENE_DUR,
-    title: 'Le ton est donné, <span class="accent">dès la porte.</span>',
-    body: 'Vis de pressoir ancienne, ardoise et vieux bois.' },
+  { img: 'entree-pressoir', pos: '45% 50%', dur: SCENE_DUR },
 
-  { n: '02', room: 'Le grand salon', img: 'grand-salon', pos: '50% 45%', dur: SCENE_DUR,
-    title: 'Un canapé vert mousse <span class="accent">face à la neige.</span>',
-    body: 'Laine bouclée, tapis à carreaux, vieux bois.' },
+  { img: 'grand-salon', pos: '50% 45%', dur: SCENE_DUR },
 
-  { n: '03', room: 'Le coin cheminée', img: 'salon-cheminee', pos: '50% 45%', dur: SCENE_DUR,
-    title: 'Pierre, braises <span class="accent">et plaids en fourrure.</span>',
-    body: 'Le cœur battant du chalet.' },
+  { img: 'salon-cheminee', pos: '50% 45%', dur: SCENE_DUR },
 
-  { n: '04', room: 'L’esprit vintage', img: 'esprit-vintage', pos: '48% 50%', dur: SCENE_DUR,
-    title: 'Des objets qui ont <span class="accent">déjà vécu.</span>',
-    body: 'Enceinte rétro, mouton de laiton, beaux livres.' },
+  { img: 'esprit-vintage', pos: '48% 50%', dur: SCENE_DUR },
 
-  { n: '05', room: 'Le panorama', img: 'panorama-cerf', pos: '50% 42%', dur: SCENE_DUR,
-    title: 'Un cerf de bronze <span class="accent">veille sur la vallée.</span>',
-    body: 'La baie cadre les sommets comme un tableau.' },
+  { img: 'panorama-cerf', pos: '50% 42%', dur: SCENE_DUR },
 
-  { n: '06', room: 'Le coin lecture', img: 'coin-lecture', pos: '50% 45%', dur: SCENE_DUR,
-    title: 'La lumière du soir, <span class="accent">côté bibliothèque.</span>',
-    body: 'Canapé profond et livres d’art alpin.' },
+  { img: 'intro-fenetre', pos: '74% 50%', dur: SCENE_DUR },
 
-  { n: '07', room: 'La table d’hôtes', img: 'table-hotes', pos: '50% 45%', dur: SCENE_DUR,
-    title: 'Une grande tablée <span class="accent">face aux montagnes.</span>',
-    body: 'Vieilles planches, grès noir et verre strié.' },
+  { img: 'table-hotes', pos: '50% 45%', dur: SCENE_DUR },
 
-  { n: '08', room: 'La cuisine', img: 'cuisine', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Un meuble de métier <span class="accent">en îlot central.</span>',
-    body: 'Chiné, patiné, taillé pour les grandes tribus.' },
+  { img: 'cuisine', pos: '50% 55%', dur: SCENE_DUR },
 
-  { n: '09', room: 'Les matières', img: 'matieres', pos: '50% 50%', dur: SCENE_DUR,
-    title: 'Pierre éclatée, <span class="accent">noyer et laiton.</span>',
-    body: 'Chaque façade se travaille comme un relief.' },
+  { img: 'matieres', pos: '50% 50%', dur: SCENE_DUR },
 
-  { n: '10', room: 'Le coin repas', img: 'coin-repas', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Chaux, vert amande <span class="accent">et portraits de coqs.</span>',
-    body: 'L’esprit ferme, revisité.' },
+  { img: 'coin-repas', pos: '50% 55%', dur: SCENE_DUR },
 
-  { n: '11', room: 'L’escalier', img: 'escalier', pos: '50% 45%', dur: SCENE_DUR,
-    title: 'Vert sapin <span class="accent">jusque dans la montée.</span>',
-    body: 'Et de vieux skis suspendus dans la lumière.' },
+  { img: 'escalier', pos: '50% 45%', dur: SCENE_DUR },
 
-  { n: '12', room: 'La suite', img: 'suite', pos: '45% 50%', dur: SCENE_DUR,
-    title: 'Le petit-déjeuner <span class="accent">se prend au lit.</span>',
-    body: 'Et les montagnes s’invitent au réveil.' },
+  { img: 'couloir-miroirs', pos: '55% 50%', dur: SCENE_DUR },
 
-  { n: '13', room: 'La chambre double', img: 'chambre-double', pos: '50% 50%', dur: SCENE_DUR,
-    title: 'Des têtes de lit <span class="accent">en vieux bois galbé.</span>',
-    body: 'Lin lavé, plaid écossais, peignoirs douillets.' },
+  { img: 'suite', pos: '45% 50%', dur: SCENE_DUR },
 
-  { n: '14', room: 'La chambre aux skis', img: 'chambre-skis', pos: '38% 50%', dur: SCENE_DUR,
-    title: 'Des skis d’époque <span class="accent">en guise de tableau.</span>',
-    body: 'Clin d’œil aux pionniers de la glisse.' },
+  { img: 'chambre-double', pos: '50% 50%', dur: SCENE_DUR },
 
-  { n: '15', room: 'La chambre familiale', img: 'chambre-familiale', pos: '50% 50%', dur: SCENE_DUR,
-    title: 'Trois lits sous <span class="accent">la charpente blonde.</span>',
-    body: 'Et un cheval de bois qui monte la garde.' },
+  { img: 'lampe-tweed', pos: '50% 50%', dur: SCENE_DUR },
 
-  { n: '16', room: 'Le dortoir des enfants', img: 'dortoir-enfants', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Moutarde, tweed <span class="accent">et cheval à bascule.</span>',
-    body: 'Le refuge préféré des petits.' },
+  { img: 'chambre-skis', pos: '38% 50%', dur: SCENE_DUR },
 
-  { n: '17', room: 'Le coin bureau', img: 'coin-bureau', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Lampe ours et <span class="accent">tabouret moumoute.</span>',
-    body: 'Pour télétravailler face aux cimes.' },
+  { img: 'chambre-familiale', pos: '50% 50%', dur: SCENE_DUR },
 
-  { n: '18', room: 'Le coin jeux', img: 'coin-jeux', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Dames, marmottes <span class="accent">et peaux de vache.</span>',
-    body: 'Sous la fenêtre, l’hiver passe vite.' },
+  { img: 'dortoir-enfants', pos: '50% 55%', dur: SCENE_DUR },
 
-  { n: '19', room: 'La salle de bains', img: 'salle-de-bains', pos: '50% 55%', dur: SCENE_DUR,
-    title: 'Vasques rondes <span class="accent">en pierre noire.</span>',
-    body: 'Chêne clair et pierre grise, esprit spa.' },
+  { img: 'coin-bureau', pos: '50% 55%', dur: SCENE_DUR },
 
-  { n: '20', room: 'La salle de fête', img: 'salle-de-fete', pos: '65% 45%', dur: SCENE_DUR,
-    title: 'Au sous-sol, <span class="accent">le néon s’allume.</span>',
-    body: 'Concerts et soirées : la boîte du chalet.' },
+  { img: 'coin-jeux', pos: '50% 55%', dur: SCENE_DUR },
 
-  { n: '21', room: 'L’heure de l’apéro', img: 'apero', pos: '50% 40%', dur: SCENE_DUR,
-    title: 'Et le soir venu, <span class="accent">tout le monde se retrouve.</span>',
-    body: 'Face au cerf, whisky et fous rires.' },
+  { img: 'salle-de-bains', pos: '50% 55%', dur: SCENE_DUR },
+
+  { img: 'salle-de-fete', pos: '65% 45%', dur: SCENE_DUR },
+
+  { img: 'apero', pos: '50% 40%', dur: SCENE_DUR },
 
   { type: 'outro', dur: OUTRO_DUR,
     title: 'Une tribu. Un chalet.<br><span class="accent">Arpian.</span>',
@@ -248,12 +210,7 @@ SCENES.forEach((s, i) => {
       <div class="url anim" data-d="760">${s.url}</div>
     </div>`;
   } else {
-    html += `<img class="logo-corner" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">
-    <div class="content">
-      <div class="kicker anim" data-d="80">&mdash;&nbsp;${s.n}&nbsp;&mdash;&nbsp;${s.room}</div>
-      <h1 class="anim" data-d="220">${s.title}</h1>
-      <div class="body anim" data-d="380">${s.body}</div>
-    </div>`;
+    html += `<img class="logo-corner" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">`;
   }
   el.innerHTML = html;
   stage.appendChild(el);
