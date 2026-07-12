@@ -73,9 +73,12 @@
   .scene.intro .kicker { margin-bottom: 40px; }
   .scene.intro h1 { font-size: 96px; }
   .scene.intro .body { margin-top: 36px; font-size: 34px; }
+  .logo-wrap {
+    position: absolute; bottom: 150px; left: 0; right: 0;
+    display: flex; justify-content: center;
+  }
   .logo-bottom {
-    position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%);
-    width: 280px; filter: drop-shadow(0 3px 14px rgba(24,18,12,0.7));
+    width: 400px; filter: drop-shadow(0 3px 14px rgba(24,18,12,0.7));
   }
 
   /* Clôture */
@@ -204,7 +207,7 @@ SCENES.forEach((s, i) => {
       <h1 class="anim" data-d="260">${s.title}</h1>
       <div class="body anim" data-d="420">${s.body}</div>
     </div>
-    <img class="logo-bottom anim" data-d="540" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian">`;
+    <div class="logo-wrap"><img class="logo-bottom anim" data-d="540" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian"></div>`;
   } else if (s.type === 'outro') {
     html += `<div class="content">
       <div class="stars anim" data-d="0">✦ ✦ ✦</div>
