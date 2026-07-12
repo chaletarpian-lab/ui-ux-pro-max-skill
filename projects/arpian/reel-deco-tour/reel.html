@@ -123,9 +123,7 @@ const SCENES = [
     title: 'Le tour déco du<br><span class="accent">Chalet Arpian.</span>',
     body: 'Vieux bois, laine et lumière d’altitude :<br>suivez la visite, pièce par pièce.' },
 
-  { img: 'entree-pressoir', pos: '45% 50%', dur: SCENE_DUR },
-
-  { img: 'grand-salon', pos: '50% 45%', dur: SCENE_DUR },
+  { img: 'grand-salon', pos: '0% 50%', origin: '52% 77%', zoom: 1.45, dur: SCENE_DUR },
 
   { img: 'salon-cheminee', pos: '50% 45%', dur: SCENE_DUR },
 
@@ -133,7 +131,7 @@ const SCENES = [
 
   { img: 'panorama-cerf', pos: '50% 42%', dur: SCENE_DUR },
 
-  { img: 'intro-fenetre', pos: '74% 50%', dur: SCENE_DUR },
+  { img: 'intro-fenetre', pos: '100% 50%', origin: '55% 42%', zoom: 1.3, dur: SCENE_DUR },
 
   { img: 'table-hotes', pos: '50% 45%', dur: SCENE_DUR },
 
@@ -157,9 +155,9 @@ const SCENES = [
 
   { img: 'chambre-familiale', pos: '50% 50%', dur: SCENE_DUR },
 
-  { img: 'dortoir-enfants', pos: '50% 55%', dur: SCENE_DUR },
+  { img: 'dortoir-enfants', pos: '30% 50%', origin: '30% 60%', zoom: 1.3, dur: SCENE_DUR },
 
-  { img: 'coin-bureau', pos: '50% 55%', dur: SCENE_DUR },
+  { img: 'coin-bureau', pos: '0% 50%', origin: '33% 55%', zoom: 1.35, dur: SCENE_DUR },
 
   { img: 'coin-jeux', pos: '50% 55%', dur: SCENE_DUR },
 
@@ -216,6 +214,7 @@ SCENES.forEach((s, i) => {
   stage.appendChild(el);
   s.el = el;
   s.photo = el.querySelector('img.photo');
+  if (s.photo && s.origin) s.photo.style.transformOrigin = s.origin;
   s.anims = [...el.querySelectorAll('.anim')];
 });
 
@@ -223,9 +222,9 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const easeOutCubic = p => 1 - Math.pow(1 - p, 3);
 
 // Ken Burns : zoom avant sur scènes paires, arrière sur impaires, pan léger alterné
-function kb(i, p) {
+function kb(i, p, zoom) {
   const zin = i % 2 === 0;
-  const s = zin ? 1.02 + 0.10 * p : 1.12 - 0.10 * p;
+  const s = (zin ? 1.02 + 0.10 * p : 1.12 - 0.10 * p) * zoom;
   const dx = (i % 4 < 2 ? 1 : -1) * (p - 0.5) * 1.6;   // -0.8% → +0.8%
   const dy = (i % 3 === 0 ? 1 : -1) * (p - 0.5) * 1.0;
   return `scale(${s.toFixed(4)}) translate(${dx.toFixed(3)}%, ${dy.toFixed(3)}%)`;
@@ -240,7 +239,7 @@ window.seek = function (t) {
     s.el.style.opacity = (Math.min(fadeIn, fadeOut)).toFixed(3);
     if (s.photo) {
       const p = clamp(local / s.dur, 0, 1);
-      s.photo.style.transform = kb(i, p);
+      s.photo.style.transform = kb(i, p, s.zoom || 1);
     }
     s.anims.forEach(a => {
       const d = +a.dataset.d * 1.6 + 260;
