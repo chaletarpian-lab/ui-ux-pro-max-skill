@@ -29,6 +29,9 @@ des matériaux authentiques et des espaces pensés pour la vie de groupe.
 - **Le bain nordique** : chauffé au feu de bois **en hiver uniquement** ;
   en été il n'est pas chauffé (bain de fraîcheur). Ne jamais écrire « chauffé »
   dans un contenu estival.
+- **La terrasse bois** : outre le bain nordique, elle compte **trois transats**
+  et, juste à côté, une **longue table de pique-nique** où l'apéro peut se
+  poursuivre en plus grand comité.
 - **La grande table** : les tablées, apéros et petits-déjeuners de la tribu.
 
 ## L'environnement Valmorel (été)
