@@ -26,7 +26,9 @@ des matériaux authentiques et des espaces pensés pour la vie de groupe.
   réalisé par **Samuel, artisan ébéniste**.
 - **Les dortoirs** : 2 dortoirs enfants tout en bois, chacun avec salle d'eau
   attenante, têtes de lit jaunes, cheval de bois.
-- **Le bain nordique** : au feu de bois, pour la récupération des grands.
+- **Le bain nordique** : chauffé au feu de bois **en hiver uniquement** ;
+  en été il n'est pas chauffé (bain de fraîcheur). Ne jamais écrire « chauffé »
+  dans un contenu estival.
 - **La grande table** : les tablées, apéros et petits-déjeuners de la tribu.
 
 ## L'environnement Valmorel (été)
