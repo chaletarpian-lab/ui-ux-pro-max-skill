@@ -24,11 +24,12 @@ Scrims photo : dégradés de `rgba(24,18,12,…)` (brun neutre, jamais bleu).
 ## Grammaire des slides (1080 × 1350)
 
 - **Couverture** : kicker or centré « VALMOREL · SAVOIE · … », titre centré crème dont la
-  dernière ligne est en italique or, sous-titre serif 2 lignes, étoiles « ✦ ✦ ✦ » or,
-  logo blanc centré en bas.
+  dernière ligne est en italique or, sous-titre serif 2 lignes, étoiles « ✦ ✦ ✦ ✦ ✦ » or
+  (**toujours 5** — jamais 3, qui se lirait comme un classement hôtelier), logo blanc
+  centré en bas.
 - **Slides contenu** : petit logo blanc en haut à gauche ; bloc texte bas-gauche :
   kicker « — 0X — TITRE » or, titre crème + ligne italique or, body serif crème 2 lignes.
-- **Clôture** (fond chocolat) : étoiles or en haut, titre italique centré (fin en or),
+- **Clôture** (fond chocolat) : 5 étoiles or en haut, titre italique centré (fin en or),
   signature « Une tribu. Un chalet. Arpian. » en or, bandeau CTA or (texte chocolat,
   Montserrat uppercase, une seule ligne), logo centré, « ARPIAN-VALMOREL.COM » espacé.
 - Crédit photo éventuel : vertical sur le bord droit, Montserrat 16px, crème 55 %.
