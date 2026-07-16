@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arpian — Post Okapi toucher le ciel</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root {
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  .slide {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--chocolat);
+    font-family: 'Fraunces', serif;
+  }
+  .photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+  }
+  /* Bande douce au milieu du ciel pour porter le texte, sans éteindre le bleu */
+  .scrim-sky {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(24,18,12,0.00) 30%,
+        rgba(24,18,12,0.26) 46%,
+        rgba(24,18,12,0.26) 62%,
+        rgba(24,18,12,0.00) 76%);
+  }
+  /* Scrim bas renforcé : gonflables colorés + herbe sous les étoiles et le logo */
+  .scrim-bottom {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top,
+        rgba(24,18,12,0.84) 0%,
+        rgba(24,18,12,0.64) 14%,
+        rgba(24,18,12,0.00) 34%);
+  }
+  .content {
+    position: absolute; left: 70px; right: 70px; top: 552px;
+    display: flex; flex-direction: column;
+    align-items: center;
+    text-align: center; color: var(--creme);
+  }
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px; font-weight: 600;
+    letter-spacing: 0.28em; text-indent: 0.28em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 34px;
+    text-shadow: 0 2px 18px rgba(24,18,12,0.75);
+  }
+  h1 {
+    font-weight: 600; font-size: 92px; line-height: 1.12;
+    text-shadow: 0 4px 36px rgba(24,18,12,0.75);
+  }
+  h1 .accent {
+    font-style: italic; font-weight: 600;
+    color: var(--or);
+  }
+  .sub {
+    margin-top: 28px;
+    font-weight: 400; font-size: 34px; line-height: 1.55;
+    text-shadow: 0 2px 22px rgba(24,18,12,0.8);
+  }
+  .stars {
+    position: absolute; bottom: 236px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--or); font-size: 27px;
+    letter-spacing: 0.6em; text-indent: 0.6em;
+    text-shadow: 0 2px 14px rgba(24,18,12,0.7);
+  }
+  .logo {
+    position: absolute; bottom: 84px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    filter: drop-shadow(0 4px 20px rgba(24,18,12,0.7));
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <img class="photo" src="assets/okapi-elastique.jpeg" alt="">
+    <div class="scrim-sky"></div>
+    <div class="scrim-bottom"></div>
+
+    <div class="content">
+      <div class="kicker">Okapi &middot; Valmorel &middot; &Agrave; 5 minutes du chalet</div>
+      <h1>Ici, les enfants<br><span class="accent">touchent le ciel.</span></h1>
+      <div class="sub">Trampoline-&eacute;lastique, face au Cr&ecirc;t du Ni&eacute;lard.</div>
+    </div>
+
+    <div class="stars">&#10022;&nbsp;&#10022;&nbsp;&#10022;&nbsp;&#10022;&nbsp;&#10022;</div>
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
+  </div>
+</body>
+</html>

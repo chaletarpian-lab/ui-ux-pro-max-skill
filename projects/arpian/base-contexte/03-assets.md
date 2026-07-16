@@ -20,6 +20,7 @@
 | Fenêtre vide (original) | `retouches/fenetre-original.jpeg` | Base pour éditions IA |
 | Enfants sautant sur lits ×2 (IA, réalisées) | `retouches/enfants-lit-0{1,2}-realiste.jpeg` | Post-traitées grain/désat. Tag IA Meta à la publication |
 | Couloir + bambin au caddie | `instagram-carousel/assets/couloir-enfant.jpeg` | Moment volé, enfant au fond du couloir |
+| Élastique Okapi (retouchée, sans flare) | `instagram-carousel/assets/okapi-elastique.jpeg` | Enfant en plein vol, Crêt du Niélard. Original + script : `retouches/okapi-*` |
 
 ## Slides produites (HTML + PNG dans `instagram-carousel/`)
 
@@ -30,7 +31,8 @@
 | Contenu 01 Okapi « le paradis des enfants. » | `slide-01-okapi.html` | Redondante si couverture Okapi |
 | Contenu 02 Family room « leur paradis du soir. » | `slide-02-family-room.html` | OK |
 | Clôture « Des vacances au paradis, ça se réserve. » | `slide-03-cloture.html` | OK |
-| Post « Adults only ou kids friendly ? » | `slide-post-adults-kids.html` | Bloc texte haut, logo bas sur scrim renforcé |
+| Post « Adults only ou kids friendly ? » | `slide-post-adults-kids.html` | Chute « vos réveils », or clair #D8BC94 sur zone claire |
+| Post « Ici, les enfants touchent le ciel. » | `slide-post-okapi-ciel.html` | Bloc texte centré dans le ciel |
 
 ## Légendes validées (historique des livrables texte)
 
@@ -42,4 +44,6 @@
   avec vacances sportives, vous serez servis à Valmorel. »
 - Dortoir SDB intégrée : « Dans chaque dortoir, une salle d'eau. La leur. »
 - Terrasse été (bain non chauffé) : « Le paradis des grands existe aussi. »
-- Post couloir : « Adults only ou kids friendly : à l'Arpian, c'est vous qui choisissez. »
+- Post couloir : « Adults only ou kids friendly : à l'Arpian, c'est vous qui
+  choisissez. Vos réveils aussi. » (+ concept « vos propres hôtes »)
+- Post élastique Okapi : « Ici, les enfants touchent le ciel. » (Crêt du Niélard)
