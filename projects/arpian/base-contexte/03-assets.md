@@ -19,6 +19,7 @@
 | Fenêtre + personne assise (sans lampadaire) | `retouches/fenetre-assise-sans-lampadaire.jpeg` | Contemplative, luge, sommets. Générée IA puis retouchée |
 | Fenêtre vide (original) | `retouches/fenetre-original.jpeg` | Base pour éditions IA |
 | Enfants sautant sur lits ×2 (IA, réalisées) | `retouches/enfants-lit-0{1,2}-realiste.jpeg` | Post-traitées grain/désat. Tag IA Meta à la publication |
+| Couloir + bambin au caddie | `instagram-carousel/assets/couloir-enfant.jpeg` | Moment volé, enfant au fond du couloir |
 
 ## Slides produites (HTML + PNG dans `instagram-carousel/`)
 
@@ -29,6 +30,7 @@
 | Contenu 01 Okapi « le paradis des enfants. » | `slide-01-okapi.html` | Redondante si couverture Okapi |
 | Contenu 02 Family room « leur paradis du soir. » | `slide-02-family-room.html` | OK |
 | Clôture « Des vacances au paradis, ça se réserve. » | `slide-03-cloture.html` | OK |
+| Post « Adults only ou kids friendly ? » | `slide-post-adults-kids.html` | Bloc texte haut, logo bas sur scrim renforcé |
 
 ## Légendes validées (historique des livrables texte)
 
@@ -38,3 +40,6 @@
 - Dortoir en suite : « Les quartiers des enfants. » (2 dortoirs, salle d'eau chacun)
 - Reel activités sportives : accroche « Si pour vous, vacances à la montagne rime
   avec vacances sportives, vous serez servis à Valmorel. »
+- Dortoir SDB intégrée : « Dans chaque dortoir, une salle d'eau. La leur. »
+- Terrasse été (bain non chauffé) : « Le paradis des grands existe aussi. »
+- Post couloir : « Adults only ou kids friendly : à l'Arpian, c'est vous qui choisissez. »
