@@ -33,6 +33,9 @@ des matériaux authentiques et des espaces pensés pour la vie de groupe.
   et, juste à côté, une **longue table de pique-nique** où l'apéro peut se
   poursuivre en plus grand comité.
 - **La grande table** : les tablées, apéros et petits-déjeuners de la tribu.
+- **Le coin lecture** : fauteuils **Maison Yak**, beaux livres **Assouline**,
+  pupitre ancien, oursons sculptés en bois sur l'appui de fenêtre, grande
+  baie avec **vue dégagée sur la vallée** — le refuge des jours d'orage.
 
 ## L'environnement Valmorel (été)
 
