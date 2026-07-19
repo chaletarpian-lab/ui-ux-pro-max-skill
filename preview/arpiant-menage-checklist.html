@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chalet Arpiant — Check-list Ménage</title>
+<style>
+/* ==========================================================================
+   Design Système Arpiant — Tokens
+   Esprit chalet alpin : vert sapin, bois doré, fond crème
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Couleurs */
+  --arp-primary: #2E4636;          /* Vert sapin */
+  --arp-on-primary: #FFFFFF;
+  --arp-accent: #A16207;           /* Bois doré */
+  --arp-on-accent: #FFFFFF;
+  --arp-background: #FAF6EF;       /* Crème */
+  --arp-foreground: #22301F;
+  --arp-card: #FFFFFF;
+  --arp-muted: #EFE8DB;
+  --arp-muted-foreground: #6B6455;
+  --arp-border: #E2D9C8;
+  --arp-success: #3E7C4F;
+  --arp-ring: #2E4636;
+
+  /* Typographie */
+  --arp-font-heading: 'Playfair Display', Georgia, serif;
+  --arp-font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Espacement & formes */
+  --arp-radius-sm: 8px;
+  --arp-radius-md: 14px;
+  --arp-radius-lg: 20px;
+  --arp-shadow-card: 0 1px 3px rgba(34, 48, 31, 0.06), 0 8px 24px rgba(34, 48, 31, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--arp-font-body);
+  background: var(--arp-background);
+  color: var(--arp-foreground);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* ===== En-tête ===== */
+.header {
+  background: var(--arp-primary);
+  color: var(--arp-on-primary);
+  padding: 32px 20px 88px;
+  text-align: center;
+}
+.header .brand {
+  font-family: var(--arp-font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #CBD9C6;
+  margin-bottom: 8px;
+}
+.header h1 {
+  font-family: var(--arp-font-heading);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 600;
+}
+.header .subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #CBD9C6;
+  font-weight: 300;
+}
+
+/* ===== Barre de progression globale ===== */
+.progress-card {
+  max-width: 720px;
+  margin: -56px auto 0;
+  padding: 20px 24px;
+  background: var(--arp-card);
+  border: 1px solid var(--arp-border);
+  border-radius: var(--arp-radius-lg);
+  box-shadow: var(--arp-shadow-card);
+}
+.progress-card .progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+.progress-card .progress-label strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+.progress-card .progress-label span {
+  font-size: 13px;
+  color: var(--arp-muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+.progress-track {
+  height: 10px;
+  background: var(--arp-muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--arp-success), var(--arp-primary));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+.all-done {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #EAF3EC;
+  border: 1px solid #C4DCCB;
+  border-radius: var(--arp-radius-sm);
+  color: var(--arp-success);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.all-done.visible { display: block; }
+
+/* ===== Contenu ===== */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 16px 80px;
+}
+
+/* ===== Section (pièce) ===== */
+.room {
+  background: var(--arp-card);
+  border: 1px solid var(--arp-border);
+  border-radius: var(--arp-radius-lg);
+  box-shadow: var(--arp-shadow-card);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.room-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--arp-border);
+  background: linear-gradient(180deg, #FDFBF7, #FFFFFF);
+}
+.room-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: var(--arp-muted);
+  border-radius: var(--arp-radius-md);
+}
+.room-title-wrap { flex: 1; min-width: 0; }
+.room-title {
+  font-family: var(--arp-font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--arp-primary);
+}
+.room-note {
+  font-size: 12.5px;
+  color: var(--arp-muted-foreground);
+  margin-top: 2px;
+}
+.room-count {
+  flex-shrink: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--arp-muted-foreground);
+  background: var(--arp-muted);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+.room-count.done {
+  background: #EAF3EC;
+  color: var(--arp-success);
+}
+
+/* ===== Items ===== */
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #F3EEE4;
+  transition: background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.task:last-child { border-bottom: none; }
+.task:hover { background: #FBF8F2; }
+.task input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkbox {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border: 2px solid #B7AD99;
+  border-radius: 7px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+.checkbox svg {
+  width: 14px;
+  height: 14px;
+  stroke: #FFFFFF;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.18s ease;
+}
+.task input:checked + .checkbox {
+  background: var(--arp-success);
+  border-color: var(--arp-success);
+}
+.task input:checked + .checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+.task input:focus-visible + .checkbox {
+  outline: 2px solid var(--arp-ring);
+  outline-offset: 2px;
+}
+.task-label {
+  font-size: 15px;
+  color: var(--arp-foreground);
+  transition: color 0.18s ease;
+  user-select: none;
+}
+.task input:checked ~ .task-label {
+  color: var(--arp-muted-foreground);
+  text-decoration: line-through;
+  text-decoration-color: #B7AD99;
+}
+
+/* ===== Pied de page / actions ===== */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--arp-font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.btn-primary {
+  background: var(--arp-primary);
+  color: var(--arp-on-primary);
+}
+.btn-primary:hover { background: #3A5745; }
+.btn-ghost {
+  background: transparent;
+  color: var(--arp-primary);
+  border: 1.5px solid var(--arp-border);
+}
+.btn-ghost:hover { border-color: var(--arp-primary); }
+
+.footer-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: var(--arp-muted-foreground);
+}
+
+/* ===== Impression ===== */
+@media print {
+  body { background: #FFFFFF; }
+  .header { padding: 16px 0 24px; background: none; color: var(--arp-primary); }
+  .header .brand, .header .subtitle { color: var(--arp-muted-foreground); }
+  .progress-card, .actions, .footer-note { display: none; }
+  .room {
+    box-shadow: none;
+    break-inside: avoid;
+    margin-bottom: 14px;
+  }
+  .container { padding: 0 0 20px; }
+  .checkbox { border-color: #999; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">Chalet Arpiant</div>
+  <h1>Check-list Ménage</h1>
+  <p class="subtitle">À compléter à chaque passage, pièce par pièce</p>
+</header>
+
+<div class="progress-card">
+  <div class="progress-label">
+    <strong>Progression</strong>
+    <span id="progressText">0 / 0 tâches</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="all-done" id="allDone">✨ Tout est fait — le chalet est prêt, merci !</div>
+</div>
+
+<main class="container" id="checklist">
+
+  <!-- Toilettes -->
+  <section class="room" data-room="toilettes">
+    <div class="room-header">
+      <div class="room-icon">🚽</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Toilettes</div>
+        <div class="room-note">À faire dans chaque WC du chalet</div>
+      </div>
+      <div class="room-count">0/6</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Mettre deux rouleaux de papier toilette</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que le distributeur de savon est rempli</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer et désinfecter la cuvette, la lunette et l'abattant</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer le lavabo et la robinetterie</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vider la poubelle et remettre un sac propre</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Laver le sol</span></label>
+  </section>
+
+  <!-- Salles de bain -->
+  <section class="room" data-room="sdb">
+    <div class="room-header">
+      <div class="room-icon">🛁</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Salles de bain</div>
+        <div class="room-note">À faire dans chaque salle de bain</div>
+      </div>
+      <div class="room-count">0/7</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que le distributeur de gel douche est rempli</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier qu'il y a un sac poubelle dans les poubelles</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer la douche / baignoire et les parois</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer le lavabo, la robinetterie et le miroir</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Remplacer les serviettes par des propres</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier l'évacuation (cheveux, résidus)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Laver le sol</span></label>
+  </section>
+
+  <!-- Chambres -->
+  <section class="room" data-room="chambres">
+    <div class="room-header">
+      <div class="room-icon">🛏️</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Chambres</div>
+        <div class="room-note">À faire dans chaque chambre</div>
+      </div>
+      <div class="room-count">0/5</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Changer les draps et faire les lits</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Dépoussiérer les meubles et tables de nuit</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier sous les lits et dans les placards (objets oubliés)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Aérer la pièce puis refermer les fenêtres</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Passer l'aspirateur</span></label>
+  </section>
+
+  <!-- Cuisine -->
+  <section class="room" data-room="cuisine">
+    <div class="room-header">
+      <div class="room-icon">🍳</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Cuisine</div>
+      </div>
+      <div class="room-count">0/7</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vider le lave-vaisselle et ranger la vaisselle</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer le plan de travail, l'évier et la robinetterie</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Nettoyer les plaques de cuisson, le four et le micro-ondes</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vider le réfrigérateur et le nettoyer</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vider les poubelles et remettre des sacs propres</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier le stock (éponge, liquide vaisselle, pastilles lave-vaisselle, essuie-tout)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Laver le sol</span></label>
+  </section>
+
+  <!-- Salon / Séjour -->
+  <section class="room" data-room="salon">
+    <div class="room-header">
+      <div class="room-icon">🛋️</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Salon &amp; Séjour</div>
+      </div>
+      <div class="room-count">0/5</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Remettre en place les coussins et plaids</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Dépoussiérer les meubles et la table</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que les télécommandes (TV, etc.) sont à leur place</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier sous les canapés (objets oubliés)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Passer l'aspirateur (y compris sous les tapis)</span></label>
+  </section>
+
+  <!-- Family Room -->
+  <section class="room" data-room="familyroom">
+    <div class="room-header">
+      <div class="room-icon">📽️</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Family Room</div>
+        <div class="room-note">Salle vidéoprojecteur</div>
+      </div>
+      <div class="room-count">0/5</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que les télécommandes du vidéoprojecteur et du néon sont bien déposées sur l'enceinte</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Ranger les coussins et poufs à leur place</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que le vidéoprojecteur et l'enceinte sont éteints</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Dépoussiérer les surfaces</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Passer l'aspirateur</span></label>
+  </section>
+
+  <!-- Vérifications finales -->
+  <section class="room" data-room="final">
+    <div class="room-header">
+      <div class="room-icon">🔑</div>
+      <div class="room-title-wrap">
+        <div class="room-title">Vérifications finales</div>
+        <div class="room-note">Avant de quitter le chalet</div>
+      </div>
+      <div class="room-count">0/6</div>
+    </div>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Sortir les poubelles et le tri (verre, carton)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Lancer une machine avec le linge sale (draps, serviettes)</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Vérifier que toutes les fenêtres sont fermées</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Régler le chauffage en mode éco / hors gel</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Éteindre toutes les lumières</span></label>
+    <label class="task"><input type="checkbox"><span class="checkbox"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="task-label">Fermer la porte à clé et remettre la clé dans la boîte</span></label>
+  </section>
+
+  <div class="actions">
+    <button class="btn btn-ghost" id="resetBtn" type="button">↺ Réinitialiser la liste</button>
+    <button class="btn btn-primary" type="button" onclick="window.print()">🖨️ Imprimer</button>
+  </div>
+
+  <p class="footer-note">La progression est enregistrée sur cet appareil — vous pouvez fermer la page et reprendre plus tard.</p>
+
+</main>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'arpiant-menage-checklist';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.task input[type="checkbox"]'));
+  var rooms = Array.prototype.slice.call(document.querySelectorAll('.room'));
+  var progressFill = document.getElementById('progressFill');
+  var progressText = document.getElementById('progressText');
+  var allDone = document.getElementById('allDone');
+
+  function load() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      boxes.forEach(function (box, i) { box.checked = !!saved[i]; });
+    } catch (e) { /* stockage indisponible : la liste reste utilisable */ }
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(boxes.map(function (b) { return b.checked; })));
+    } catch (e) { /* idem */ }
+  }
+
+  function update() {
+    var total = boxes.length;
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    progressFill.style.width = (total ? (done / total) * 100 : 0) + '%';
+    progressText.textContent = done + ' / ' + total + ' tâches';
+    allDone.classList.toggle('visible', total > 0 && done === total);
+
+    rooms.forEach(function (room) {
+      var roomBoxes = Array.prototype.slice.call(room.querySelectorAll('input[type="checkbox"]'));
+      var roomDone = roomBoxes.filter(function (b) { return b.checked; }).length;
+      var badge = room.querySelector('.room-count');
+      badge.textContent = roomDone + '/' + roomBoxes.length;
+      badge.classList.toggle('done', roomDone === roomBoxes.length);
+    });
+  }
+
+  boxes.forEach(function (box) {
+    box.addEventListener('change', function () { save(); update(); });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    if (confirm('Remettre toute la liste à zéro ?')) {
+      boxes.forEach(function (b) { b.checked = false; });
+      save();
+      update();
+    }
+  });
+
+  load();
+  update();
+})();
+</script>
+
+</body>
+</html>
