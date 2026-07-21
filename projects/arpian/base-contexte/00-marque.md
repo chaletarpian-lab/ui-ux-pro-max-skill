@@ -36,6 +36,8 @@ des matériaux authentiques et des espaces pensés pour la vie de groupe.
 - **Le coin lecture** : fauteuils **Maison Yak**, beaux livres **Assouline**,
   pupitre ancien, oursons sculptés en bois sur l'appui de fenêtre, grande
   baie avec **vue dégagée sur la vallée** — le refuge des jours d'orage.
+- **La photographie** : place importante dans la décoration du chalet
+  (tirages encadrés, notamment noir et blanc dans les couloirs).
 
 ## L'environnement Valmorel (été)
 
