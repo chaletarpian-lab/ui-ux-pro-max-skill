@@ -100,6 +100,11 @@
   .pname { font-family:'Lora'; font-weight:700; font-size:44px; color:var(--gold); margin-top:30px; }
   .prole { font-family:'Outfit'; font-size:22px; letter-spacing:3px; text-transform:uppercase; color:var(--cream); opacity:.85; margin-top:12px; line-height:1.5; }
   .services { display:flex; gap:26px; margin-top:76px; }
+  .etaussi { display:flex; align-items:center; gap:28px; margin-top:80px; }
+  .etaussi .line { flex:1; height:1px; background:rgba(196,165,123,.4); }
+  .etaussi .lbl { font-family:'Outfit'; font-weight:700; font-size:21px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; }
+  .svc-chips { display:flex; gap:16px; margin-top:36px; justify-content:center; flex-wrap:wrap; }
+  .svc-chips .chip { font-size:21px; }
   .svc { flex:1; border-top:1px solid rgba(196,165,123,.5); padding-top:26px; text-align:center; }
   .svc .s1 { font-family:'Lora'; font-weight:700; font-size:31px; color:var(--cream); line-height:1.25; }
   .svc .s2 { font-family:'Outfit'; font-size:20px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-top:12px; }
@@ -226,11 +231,11 @@
 <div class="slide" id="s9">
   <div class="full">
     <div class="eyebrow"><span class="dash">&mdash;</span>08 &middot; Nos partenaires</div>
-    <div class="big-title">Votre s&eacute;jour, <span class="it"><br>servi sur un plateau.</span></div>
-    <div class="lead" style="margin-top:12px">Des partenaires de confiance, orchestr&eacute;s depuis le chalet &mdash; il suffit de demander.</div>
-    <div class="partners">
+    <div class="big-title">Une &eacute;quipe locale, <span class="it"><br>aux petits soins.</span></div>
+    <div class="lead">Tout s&rsquo;organise depuis le chalet &mdash; il suffit de demander.</div>
+    <div class="partners" style="margin-top:72px">
       <div class="pcard">
-        <div class="pcircle"><div class="pinitial">S</div></div>
+        <div class="pcircle"><img src="file:///tmp/claude-0/-home-user-ui-ux-pro-max-skill/0ceb6d98-8831-5d4e-92c4-bbb53f567271/scratchpad/ph_sam.jpg"></div>
         <div class="pname">Sam</div>
         <div class="prole">Chef priv&eacute;<br>au chalet</div>
       </div>
@@ -245,10 +250,11 @@
         <div class="prole">Coaching<br>sportif</div>
       </div>
     </div>
-    <div class="services">
-      <div class="svc"><div class="s1">Location de ski</div><div class="s2">Tarif r&eacute;duit</div></div>
-      <div class="svc"><div class="s1">Petit-d&eacute;jeuner</div><div class="s2">Livr&eacute; au chalet</div></div>
-      <div class="svc"><div class="s1">Traiteur</div><div class="s2">Sur demande</div></div>
+    <div class="etaussi"><div class="line"></div><div class="lbl">Et aussi</div><div class="line"></div></div>
+    <div class="svc-chips">
+      <div class="chip">Location de ski &agrave; tarif r&eacute;duit</div>
+      <div class="chip">Petit-d&eacute;jeuner livr&eacute;</div>
+      <div class="chip">Traiteur sur demande</div>
     </div>
   </div>
   <div class="brand-corner">ARPIAN</div>
