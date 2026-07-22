@@ -1,0 +1,228 @@
+<meta charset="utf-8">
+<style>
+  @font-face { font-family:'Lora'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Lora-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Lora'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Lora-Bold.ttf'); font-weight:700; }
+  @font-face { font-family:'Lora'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Lora-Italic.ttf'); font-weight:400; font-style:italic; }
+  @font-face { font-family:'Lora'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Lora-BoldItalic.ttf'); font-weight:700; font-style:italic; }
+  @font-face { font-family:'Outfit'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Outfit-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Outfit'; src:url('file:///home/user/ui-ux-pro-max-skill/.claude/skills/ui-styling/canvas-fonts/Outfit-Bold.ttf'); font-weight:700; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --gold:#C4A57B; --cream:#F4F1EA; --dark:#1C140D; --dark2:#26190F; --muted:#B8A895;
+  }
+  body { background:#000; }
+  .slide {
+    width:1080px; height:1350px; position:relative; overflow:hidden;
+    background:var(--dark); font-family:'Lora',serif; color:var(--cream);
+  }
+
+  .eyebrow { font-family:'Outfit'; font-weight:700; font-size:24px; letter-spacing:7px; color:var(--gold); text-transform:uppercase; }
+  .eyebrow .dash { color:var(--gold); opacity:.8; margin-right:14px; }
+  .wordmark { font-family:'Lora'; font-weight:400; font-size:44px; letter-spacing:16px; color:var(--cream); }
+  .pagenum { position:absolute; bottom:44px; right:56px; font-family:'Outfit'; font-size:22px; letter-spacing:3px; color:var(--muted); }
+  .goldline { width:76px; height:3px; background:var(--gold); }
+
+  /* room slides */
+  .photo { position:absolute; top:0; left:0; width:1080px; height:810px; object-fit:cover; display:block; }
+  .photo-shade { position:absolute; top:0; left:0; width:1080px; height:810px;
+    background:linear-gradient(180deg, rgba(28,20,13,.30) 0%, rgba(28,20,13,0) 25%, rgba(28,20,13,0) 70%, rgba(28,20,13,.55) 100%); }
+  .placeholder { position:absolute; top:0; left:0; width:1080px; height:810px;
+    background:radial-gradient(120% 90% at 30% 20%, #3A2A1B 0%, #2A1D12 45%, #1C140D 100%);
+    display:flex; align-items:center; justify-content:center; }
+  .placeholder .frame { border:1px solid rgba(196,165,123,.5); padding:28px 48px; text-align:center; }
+  .placeholder .frame .lbl { font-family:'Outfit'; font-weight:400; font-size:22px; letter-spacing:6px; color:var(--gold); text-transform:uppercase; }
+  .panel { position:absolute; top:810px; left:0; width:1080px; height:540px; padding:56px 72px 96px 72px; display:flex; flex-direction:column; }
+  .panel .eyebrow { font-size:22px; margin-bottom:18px; }
+  .room-title { font-weight:700; font-size:70px; line-height:1.05; margin-bottom:22px; }
+  .room-title .it { font-style:italic; color:var(--gold); }
+  .desc { font-size:29px; line-height:1.45; color:var(--cream); opacity:.92; max-width:930px; }
+  .desc b { color:var(--gold); font-weight:700; }
+  .chips { margin-top:auto; display:flex; gap:14px; flex-wrap:wrap; }
+  .chip { font-family:'Outfit'; font-size:22px; letter-spacing:2px; color:var(--cream);
+    border:1px solid rgba(196,165,123,.55); border-radius:999px; padding:12px 26px; white-space:nowrap; }
+  .brand-corner { position:absolute; bottom:44px; left:72px; font-family:'Lora'; font-size:24px; letter-spacing:10px; color:var(--muted); }
+
+  /* cover */
+  .cover-photo { position:absolute; inset:0; width:1080px; height:1350px; object-fit:cover; }
+  .cover-shade { position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(28,20,13,.55) 0%, rgba(28,20,13,.12) 30%, rgba(28,20,13,.15) 52%, rgba(28,20,13,.88) 88%, rgba(28,20,13,.96) 100%); }
+  .cover-top { position:absolute; top:70px; left:0; width:1080px; text-align:center; }
+  .cover-bottom { position:absolute; left:72px; right:72px; bottom:96px; }
+  .cover-title { font-weight:700; font-size:88px; line-height:1.08; }
+  .cover-title .it { font-style:italic; color:var(--gold); }
+  .cover-sub { margin-top:30px; font-size:32px; color:var(--cream); opacity:.95; }
+  .cover-stats { margin-top:34px; font-family:'Outfit'; font-size:25px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
+  .swipe { position:absolute; bottom:40px; right:56px; font-family:'Outfit'; font-size:24px; letter-spacing:3px; color:var(--cream); opacity:.85; }
+
+  /* winter + CTA */
+  .full { padding:96px 84px; }
+  .big-title { font-weight:700; font-size:84px; line-height:1.08; margin:26px 0 14px 0; }
+  .big-title .it { font-style:italic; color:var(--gold); }
+  .lead { font-size:32px; line-height:1.5; opacity:.92; margin-top:18px; }
+  .stats-row { display:flex; gap:26px; margin-top:52px; }
+  .stat { flex:1; border:1px solid rgba(196,165,123,.45); padding:34px 26px; text-align:center; }
+  .stat .n { font-weight:700; font-size:56px; color:var(--gold); }
+  .stat .l { font-family:'Outfit'; font-size:21px; letter-spacing:3px; text-transform:uppercase; margin-top:12px; color:var(--cream); opacity:.85; }
+  .acts { margin-top:54px; display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; }
+  .act { display:flex; align-items:baseline; gap:18px; font-size:31px; }
+  .act::before { content:'—'; color:var(--gold); }
+  .cta-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 90px; }
+  .cta-tag { font-weight:700; font-style:italic; font-size:64px; line-height:1.2; color:var(--cream); margin:38px 0; }
+  .cta-tag .g { color:var(--gold); }
+  .cta-site { font-family:'Outfit'; font-weight:700; font-size:34px; letter-spacing:5px; color:var(--gold); border:1px solid rgba(196,165,123,.55); padding:22px 44px; margin-top:20px; }
+  .cta-note { margin-top:46px; font-size:28px; font-style:italic; color:var(--muted); }
+</style>
+
+<!-- 1 · COVER -->
+<div class="slide" id="s1">
+  <img class="cover-photo" src="file:///tmp/claude-0/-home-user-ui-ux-pro-max-skill/0ceb6d98-8831-5d4e-92c4-bbb53f567271/scratchpad/crop_cover.jpg">
+  <div class="cover-shade"></div>
+  <div class="cover-top">
+    <div class="wordmark">ARPIAN</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="eyebrow"><span class="dash">—</span>Valmorel &middot; Savoie &middot; Chalet privatif 450 m&sup2;</div>
+    <div class="cover-title" style="margin-top:26px">Un chalet <span class="it">rien que<br>pour votre tribu.</span></div>
+    <div class="cover-stats">10 chambres &middot; 10 salles de bain &middot; jusqu&rsquo;&agrave; 27 personnes</div>
+  </div>
+  <div class="swipe">Visite guid&eacute;e &rarr;</div>
+</div>
+
+<!-- 2 · EXTERIEUR -->
+<div class="slide" id="s2">
+  <div class="placeholder"><div class="frame"><div class="lbl">Photo &mdash; Ext&eacute;rieur</div></div></div>
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>01 &middot; L&rsquo;ext&eacute;rieur</div>
+    <div class="room-title">Un ancien h&ocirc;tel de village, <span class="it">r&eacute;invent&eacute;.</span></div>
+    <div class="desc">Une pi&egrave;ce de l&rsquo;histoire de Valmorel devenue chalet familial&nbsp;: jardin face aux sommets, terrasse ensoleill&eacute;e et parkings priv&eacute;s devant la porte.</div>
+  
+  <div class="chips">
+    <div class="chip">Jardin face aux sommets</div><div class="chip">Terrasse</div><div class="chip">3&ndash;4 parkings priv&eacute;s</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">2 / 9</div>
+</div>
+</div>
+
+<!-- 3 · SALON -->
+<div class="slide" id="s3">
+  <img class="photo" src="file:///tmp/claude-0/-home-user-ui-ux-pro-max-skill/0ceb6d98-8831-5d4e-92c4-bbb53f567271/scratchpad/crop_salon.jpg">
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>02 &middot; Le salon</div>
+    <div class="room-title">100 m&sup2; de vie commune, <span class="it">face aux montagnes.</span></div>
+    <div class="desc">Un salon baign&eacute; de lumi&egrave;re, ses baies panoramiques sur la vall&eacute;e et de grands canap&eacute;s o&ugrave; toute la tribu se retrouve.</div>
+  
+  <div class="chips">
+    <div class="chip">Vue panoramique</div><div class="chip">Espace commun 100 m&sup2;</div><div class="chip">Grands canap&eacute;s</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">3 / 9</div>
+</div>
+</div>
+
+<!-- 4 · SALLE A MANGER -->
+<div class="slide" id="s4">
+  <div class="placeholder"><div class="frame"><div class="lbl">Photo &mdash; Salle &agrave; manger</div></div></div>
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>03 &middot; La salle &agrave; manger</div>
+    <div class="room-title">Une table de banquet <span class="it">pour tous, ensemble.</span></div>
+    <div class="desc">Grandes tabl&eacute;es, raclettes qui s&rsquo;&eacute;ternisent et petits d&eacute;jeuners face aux sommets&nbsp;: ici, personne ne mange &agrave; la petite table du bout.</div>
+  
+  <div class="chips">
+    <div class="chip">Jusqu&rsquo;&agrave; 27 convives</div><div class="chip">Grande table de banquet</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">4 / 9</div>
+</div>
+</div>
+
+<!-- 5 · CUISINE -->
+<div class="slide" id="s5">
+  <div class="placeholder"><div class="frame"><div class="lbl">Photo &mdash; Cuisine</div></div></div>
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>04 &middot; La cuisine</div>
+    <div class="room-title">Cuisinez <span class="it">comme un chef.</span></div>
+    <div class="desc">Piano de cuisson, r&eacute;frig&eacute;rateur professionnel, double machine Nespresso&hellip; et tout l&rsquo;attirail raclette &amp; fondue pour les soirs de neige.</div>
+  
+  <div class="chips">
+    <div class="chip">Piano de cuisson</div><div class="chip">Frigo pro</div><div class="chip">Raclette &amp; fondue</div><div class="chip">Machine &agrave; gla&ccedil;ons</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">5 / 9</div>
+</div>
+</div>
+
+<!-- 6 · FAMILY ROOM -->
+<div class="slide" id="s6">
+  <div class="placeholder"><div class="frame"><div class="lbl">Photo &mdash; Family room</div></div></div>
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>05 &middot; La family room</div>
+    <div class="room-title">45 m&sup2; de jeux, <span class="it">l&rsquo;ancienne bo&icirc;te de nuit.</span></div>
+    <div class="desc">La discoth&egrave;que de l&rsquo;h&ocirc;tel d&rsquo;autrefois est devenue le QG des enfants (et des grands)&nbsp;: bar, baby-foot, borne d&rsquo;arcade et home cin&eacute;ma.</div>
+  
+  <div class="chips">
+    <div class="chip">Bar</div><div class="chip">Baby-foot</div><div class="chip">Borne d&rsquo;arcade</div><div class="chip">Home cin&eacute;ma</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">6 / 9</div>
+</div>
+</div>
+
+<!-- 7 · BAIN NORDIQUE -->
+<div class="slide" id="s7">
+  <div class="placeholder"><div class="frame"><div class="lbl">Photo &mdash; Bain nordique</div></div></div>
+  <div class="photo-shade"></div>
+  <div class="panel">
+    <div class="eyebrow"><span class="dash">—</span>06 &middot; Le bain nordique</div>
+    <div class="room-title">8 places sous les &eacute;toiles, <span class="it">face aux sommets.</span></div>
+    <div class="desc">Sur la terrasse, l&rsquo;eau chaude fume dans l&rsquo;air alpin. Apr&egrave;s le ski&nbsp;: bain nordique, sauna, puis soir&eacute;e cocooning au chalet.</div>
+  
+  <div class="chips">
+    <div class="chip">Bain nordique 8 places</div><div class="chip">Sauna</div><div class="chip">Salle fitness</div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">7 / 9</div>
+</div>
+</div>
+
+<!-- 8 · HIVER -->
+<div class="slide" id="s8">
+  <div class="full">
+    <div class="eyebrow"><span class="dash">—</span>07 &middot; L&rsquo;hiver &agrave; Valmorel</div>
+    <div class="big-title">Le Grand Domaine <span class="it">&agrave; votre porte.</span></div>
+    <div class="lead">Village pi&eacute;ton au charme savoyard, navette gratuite &agrave; 50 m du chalet, de 8 h &agrave; minuit.</div>
+    <div class="stats-row">
+      <div class="stat"><div class="n">165</div><div class="l">km de pistes</div></div>
+      <div class="stat"><div class="n">2 550</div><div class="l">m d&rsquo;altitude max</div></div>
+      <div class="stat"><div class="n">50</div><div class="l">remont&eacute;es</div></div>
+    </div>
+    <div class="acts">
+      <div class="act">Ski &amp; snowboard</div>
+      <div class="act">Luge &amp; yooner</div>
+      <div class="act">Raquettes (20 km)</div>
+      <div class="act">Chiens de tra&icirc;neau</div>
+      <div class="act">Ski de fond (20 km)</div>
+      <div class="act">Motoneige &amp; fat bike</div>
+    </div>
+  </div>
+  <div class="brand-corner">ARPIAN</div>
+  <div class="pagenum">8 / 9</div>
+</div>
+
+<!-- 9 · CTA -->
+<div class="slide" id="s9">
+  <div class="cta-center">
+    <div class="wordmark">ARPIAN</div>
+    <div class="goldline" style="margin:34px auto 0 auto"></div>
+    <div class="cta-tag">Votre tribu, <span class="g">votre chalet,</span><br>votre rythme.</div>
+    <div class="eyebrow" style="font-size:23px">Valmorel &middot; Savoie &middot; Chalet privatif 450 m&sup2;</div>
+    <div class="cta-site">arpian-valmorel.com</div>
+    <div class="cta-note">S&eacute;jours famille, s&eacute;minaires d&rsquo;&eacute;quipe &amp; retraites &mdash; toute l&rsquo;ann&eacute;e.</div>
+  </div>
+</div>
