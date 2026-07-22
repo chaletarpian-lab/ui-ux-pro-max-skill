@@ -84,6 +84,21 @@
   #s6 .room-title { font-size:62px; margin-bottom:16px; }
   #s6 .desc { font-size:28px; }
   #s6 .chip { font-size:20px; padding:10px 20px; }
+
+  .partners { display:flex; gap:40px; margin-top:64px; justify-content:center; }
+  .pcard { flex:1; text-align:center; }
+  .pcircle { width:236px; height:236px; border-radius:50%; margin:0 auto;
+    background:radial-gradient(120% 120% at 30% 25%, #3E2D1C 0%, #2A1D12 60%, #1F150C 100%);
+    border:1.5px solid rgba(196,165,123,.65); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 18px 40px rgba(0,0,0,.45); overflow:hidden; }
+  .pcircle img { width:100%; height:100%; object-fit:cover; }
+  .pinitial { font-family:'Lora'; font-style:italic; font-weight:700; font-size:104px; color:var(--gold); opacity:.9; }
+  .pname { font-family:'Lora'; font-weight:700; font-size:44px; color:var(--gold); margin-top:30px; }
+  .prole { font-family:'Outfit'; font-size:22px; letter-spacing:3px; text-transform:uppercase; color:var(--cream); opacity:.85; margin-top:12px; line-height:1.5; }
+  .services { display:flex; gap:26px; margin-top:76px; }
+  .svc { flex:1; border-top:1px solid rgba(196,165,123,.5); padding-top:26px; text-align:center; }
+  .svc .s1 { font-family:'Lora'; font-weight:700; font-size:31px; color:var(--cream); line-height:1.25; }
+  .svc .s2 { font-family:'Outfit'; font-size:20px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-top:12px; }
 </style>
 
 <!-- 1 · COVER -->
@@ -208,14 +223,28 @@
   <div class="full">
     <div class="eyebrow"><span class="dash">&mdash;</span>08 &middot; Nos partenaires</div>
     <div class="big-title">Votre s&eacute;jour, <span class="it">servi sur un plateau.</span></div>
-    <div class="lead">Des partenaires de confiance, orchestr&eacute;s depuis le chalet &mdash; il suffit de demander.</div>
-    <div class="acts" style="grid-template-columns:1fr; gap:26px; margin-top:56px;">
-      <div class="act"><b style="color:var(--gold); font-weight:700;">Sam</b>&nbsp;&mdash; chef priv&eacute; au chalet</div>
-      <div class="act"><b style="color:var(--gold); font-weight:700;">Saro</b>&nbsp;&mdash; massages &amp; bien-&ecirc;tre</div>
-      <div class="act"><b style="color:var(--gold); font-weight:700;">Nathan</b>&nbsp;&mdash; coaching sportif</div>
-      <div class="act">R&eacute;duction sur la location de ski</div>
-      <div class="act">Petit-d&eacute;jeuner livr&eacute; au chalet</div>
-      <div class="act">Service traiteur</div>
+    <div class="lead" style="margin-top:12px">Des partenaires de confiance, orchestr&eacute;s depuis le chalet &mdash; il suffit de demander.</div>
+    <div class="partners">
+      <div class="pcard">
+        <div class="pcircle"><div class="pinitial">S</div></div>
+        <div class="pname">Sam</div>
+        <div class="prole">Chef priv&eacute;<br>au chalet</div>
+      </div>
+      <div class="pcard">
+        <div class="pcircle"><div class="pinitial">S</div></div>
+        <div class="pname">Saro</div>
+        <div class="prole">Massages<br>&amp; bien-&ecirc;tre</div>
+      </div>
+      <div class="pcard">
+        <div class="pcircle"><div class="pinitial">N</div></div>
+        <div class="pname">Nathan</div>
+        <div class="prole">Coaching<br>sportif</div>
+      </div>
+    </div>
+    <div class="services">
+      <div class="svc"><div class="s1">Location de ski</div><div class="s2">Tarif r&eacute;duit</div></div>
+      <div class="svc"><div class="s1">Petit-d&eacute;jeuner</div><div class="s2">Livr&eacute; au chalet</div></div>
+      <div class="svc"><div class="s1">Traiteur</div><div class="s2">Sur demande</div></div>
     </div>
   </div>
   <div class="brand-corner">ARPIAN</div>
