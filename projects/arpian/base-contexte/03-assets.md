@@ -22,6 +22,12 @@
 | Couloir + bambin au caddie | `instagram-carousel/assets/couloir-enfant.jpeg` | Moment volé, enfant au fond du couloir |
 | Élastique Okapi (retouchée, sans flare) | `instagram-carousel/assets/okapi-elastique.jpeg` | Enfant en plein vol, Crêt du Niélard. Original + script : `retouches/okapi-*` |
 
+## Bannières (`banniere/`)
+
+| Bannière | Fichier | Notes |
+|---|---|---|
+| LinkedIn « Votre tribu, votre chalet, votre rythme. » | `banniere-linkedin.html` → `output/banniere-linkedin-arpian.png` | 1584×396 @2x, photo `assets/salon-vue.jpeg`, rendu via `screenshot-banniere.mjs` ; référence d'origine : `reference-banniere.png` |
+
 ## Slides produites (HTML + PNG dans `instagram-carousel/`)
 
 | Slide | Fichier | Statut |

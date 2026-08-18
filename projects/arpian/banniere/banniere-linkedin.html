@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arpian — Bannière LinkedIn</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root {
+    --creme: #F3EEE5;
+    --chocolat: #221A13;
+    --or: #C2A279;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1584px; height: 396px; overflow: hidden; }
+  .banner {
+    position: relative;
+    width: 1584px; height: 396px;
+    background: var(--chocolat);
+    font-family: 'Fraunces', serif;
+  }
+  .photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 53%;
+  }
+  /* Dégradé chocolat depuis la gauche, s'éteint vers le centre-droit */
+  .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right,
+        rgba(24,18,12,0.96) 0%,
+        rgba(24,18,12,0.85) 20%,
+        rgba(24,18,12,0.60) 40%,
+        rgba(24,18,12,0.28) 58%,
+        rgba(24,18,12,0.00) 74%);
+  }
+  /* Voile léger global pour caler la densité de la référence */
+  .veil {
+    position: absolute; inset: 0;
+    background: rgba(24,18,12,0.17);
+  }
+  .content {
+    position: absolute; left: 99px; top: 34px;
+    color: var(--creme);
+  }
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px; font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 14px;
+    text-shadow: 0 1px 8px rgba(24,18,12,0.5);
+  }
+  h1 {
+    font-weight: 600; font-size: 46px; line-height: 1.28;
+    text-shadow: 0 2px 18px rgba(24,18,12,0.55);
+  }
+  h1 .accent {
+    font-style: italic; font-weight: 600;
+    color: var(--or);
+  }
+  .logo {
+    position: absolute; top: 22px; right: 50px;
+    width: 280px;
+    filter: drop-shadow(0 2px 12px rgba(24,18,12,0.55));
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <img class="photo" src="assets/salon-vue.jpeg" alt="">
+    <div class="veil"></div>
+    <div class="scrim"></div>
+
+    <div class="content">
+      <div class="kicker">&mdash;&nbsp;&nbsp;Valmorel &middot; Savoie &middot; Chalet privatif 450 m&sup2;</div>
+      <h1>En famille ou avec votre &eacute;quipe,<br><span class="accent">Votre tribu, votre chalet, votre rythme.</span></h1>
+    </div>
+
+    <img class="logo" src="assets/arpian-logo-blanc.png" alt="Chalet Arpian — Valmorel">
+  </div>
+</body>
+</html>

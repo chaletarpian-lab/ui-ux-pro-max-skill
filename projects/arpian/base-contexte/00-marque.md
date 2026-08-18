@@ -6,7 +6,9 @@
 
 - **Nom :** Chalet Arpian (on dit aussi « l'Arpian »)
 - **Lieu :** Valmorel, Savoie, France
-- **Produit :** grand chalet de famille à louer, esprit « maison de famille premium »
+- **Produit :** grand **chalet privatif de 450 m²** à louer en entier, esprit
+  « maison de famille premium ». Deux cibles : les tribus familiales ET les
+  équipes/entreprises (« En famille ou avec votre équipe »).
 - **Site :** arpian-valmorel.com — **réservations en direct, lien en bio**
 - **Signature de marque :** « Une tribu. Un chalet. Arpian. »
 
